@@ -95,7 +95,7 @@ public class LogUtil {
         final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         return Environment.getExternalStorageDirectory()
                 + File.separator
-                + "hustatyradioexpreswidget"
+                + Constants.LOGGER_FILENAMEPART
                 + simpleDateFormat.format(new Date()) + ".log";
     }
 

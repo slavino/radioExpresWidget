@@ -13,6 +13,7 @@ import com.hustaty.radioexpres.widget.http.MyHttpClient;
 import com.hustaty.radioexpres.widget.model.Kml;
 import com.hustaty.radioexpres.widget.model.Placemark;
 import com.hustaty.radioexpres.widget.service.LocationService;
+import com.hustaty.radioexpres.widget.util.Constants;
 import com.hustaty.radioexpres.widget.util.LogUtil;
 
 import java.io.IOException;
@@ -44,7 +45,7 @@ public class AlarmManagerBroadcastReceiver extends BroadcastReceiver {
     }
 
     PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-    PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "HustatyRadioExpres");
+    PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, Constants.POWERMANAGER_PARTIAL_WAKE_LOCK_ID);
 
     // Acquire the lock
     wl.acquire();
