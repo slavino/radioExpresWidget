@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 
+import android.widget.TextView;
 import com.hustaty.radioexpres.widget.exception.RadioExpresException;
 import com.hustaty.radioexpres.widget.http.MyHttpClient;
 import com.hustaty.radioexpres.widget.model.Kml;
@@ -24,6 +25,19 @@ public class MyActivity extends Activity
   {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.main);
+
+    MyHttpClient myHttpClient = new MyHttpClient(this);
+
+    try {
+      Kml kml = myHttpClient.getTrafficInformation(true);
+      TextView t = (TextView)findViewById(R.id.textView);
+      t.setText(kml.getDocument().getPlacemarkList().toString());
+//      Placemark placemark = kml.getDocument().getPlacemarkList().get(0);
+    } catch (IOException e) {
+      Log.e(LOG_TAG, "#onReceive(): " + e.getMessage());
+    } catch (RadioExpresException e) {
+      Log.e(LOG_TAG, "#onReceive(): " + e.getMessage());
+    }
 
     try {
       AlarmManagerBroadcastReceiver alarmManagerBroadcastReceiver = new AlarmManagerBroadcastReceiver();

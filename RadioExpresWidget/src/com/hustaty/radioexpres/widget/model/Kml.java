@@ -12,16 +12,12 @@ public class Kml {
   @Element(name = "Document")
   private Document document;
 
-//  @Attribute(name = "xmlns", required = false)
-//  private String xmlns;
-
   public Kml() {
     super();
   }
 
   public Kml(Document document, String xmlns) {
     this.document = document;
-//    this.xmlns = xmlns;
   }
 
   public Document getDocument() {
@@ -32,19 +28,10 @@ public class Kml {
     this.document = document;
   }
 
-//  public String getXmlns() {
-//    return xmlns;
-//  }
-
-//  public void setXmlns(String xmlns) {
-//    this.xmlns = xmlns;
-//  }
-
   @Override
   public String toString() {
     return "Kml{" +
         "document=" + document +
-//        ", xmlns='" + xmlns + '\'' +
         '}';
   }
 }
